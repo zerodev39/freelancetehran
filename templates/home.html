@@ -1,0 +1,129 @@
+<header>
+    <div class="container nav">
+        <a class="logo" href="#" onclick="showHome();return false">
+            <span class="logo-icon">⬡</span>
+            <span>FREELANCE TEHRAN</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#home" onclick="navigateToSection('home');return false">خانه</a>
+            <a href="#categories" onclick="navigateToSection('categories');return false">دسته‌بندی‌ها</a>
+            <a href="#projects" onclick="navigateToSection('projects');return false">پروژه‌ها</a>
+            <a href="#how" onclick="navigateToSection('how');return false">راهنمای همکاری</a>
+        </nav>
+
+        <div class="nav-actions" id="guestActions">
+            <button class="btn btn-light" onclick="openModal('loginModal')">ورود</button>
+            <button class="btn btn-primary" onclick="openModal('registerModal')">ثبت‌نام</button>
+        </div>
+
+        <div class="user-actions hidden" id="userActions">
+            <div class="avatar" id="navAvatar">ف</div>
+            <button class="btn btn-light" onclick="showDashboard()">پنل من</button>
+            <button class="btn btn-outline" onclick="logout()">خروج</button>
+        </div>
+    </div>
+</header>
+
+<main id="home">
+
+<section class="hero">
+    <div class="container hero-grid">
+        <div>
+            <div class="hero-label">✦ دنیای تازه‌ای از همکاری حرفه‌ای</div>
+            <h1>
+                مهارتت را به<br>
+                <span>فرصت‌های واقعی</span><br>
+                تبدیل کن
+            </h1>
+            <p>
+                در Freelance Tehran پروژه پیدا کن، پیشنهاد همکاری بفرست،
+                با کارفرما ارتباط بگیر و مسیر حرفه‌ای خودت را بساز.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="openProjectModal()">ثبت پروژه جدید</button>
+                <button class="btn btn-outline" onclick="scrollToProjects()">مشاهده پروژه‌ها</button>
+            </div>
+        </div>
+
+        <div class="hero-art">
+            <div class="cube-art">⬡</div>
+            <div class="float-card float-a">✦ پروژه‌های متنوع</div>
+            <div class="float-card float-b">✓ همکاری حرفه‌ای</div>
+            <div class="float-card float-c">↗ رشد مهارت‌ها</div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="categories">
+    <div class="container">
+        <div class="section-heading">
+            <div>
+                <h2>دسته‌بندی خدمات</h2>
+                <p>حوزه تخصصی خودت را انتخاب کن و فرصت‌های مرتبط را پیدا کن.</p>
+            </div>
+        </div>
+
+        <div class="categories">
+            <div class="category-card" onclick="filterCategory('طراحی گرافیک')">
+                <div class="category-icon">🎨</div>
+                <h3>طراحی گرافیک</h3>
+                <p>لوگو، برندینگ، پوستر و رابط کاربری</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('برنامه‌نویسی')">
+                <div class="category-icon">💻</div>
+                <h3>برنامه‌نویسی</h3>
+                <p>وب‌سایت، اپلیکیشن و نرم‌افزار</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('تولید محتوا')">
+                <div class="category-icon">✍️</div>
+                <h3>تولید محتوا</h3>
+                <p>مقاله، ترجمه و کپی‌رایتینگ</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('بازاریابی')">
+                <div class="category-icon">📈</div>
+                <h3>بازاریابی</h3>
+                <p>سئو، شبکه‌های اجتماعی و تبلیغات</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('ویدئو')">
+                <div class="category-icon">🎬</div>
+                <h3>تدوین و ویدئو</h3>
+                <p>تدوین، موشن‌گرافیک و انیمیشن</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('صدا')">
+                <div class="category-icon">🎧</div>
+                <h3>صدا و موسیقی</h3>
+                <p>گویندگی، پادکست و آهنگ‌سازی</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('مهندسی')">
+                <div class="category-icon">📐</div>
+                <h3>مهندسی</h3>
+                <p>نقشه‌کشی، معماری و مدل‌سازی</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('سایر')">
+                <div class="category-icon">✨</div>
+                <h3>سایر خدمات</h3>
+                <p>تخصص‌های متنوع و خدمات دیگر</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="stats">
+            <div class="stat">
+                <strong id="statProjects">۰</strong>
+                <span>پروژه‌های ثبت‌شده</span>
+            </div>
+            <div class="stat">
+                <strong id="statUsers">۰</strong>
+                <span>کاربران عضو</span>
+            </div>
+            <div class="stat">
+                <strong id="statProposals">۰</strong>
+                <span>پیشنهادهای ارسال‌شده</span>
+            </div>
+        </div>
+    </div>
+</section>

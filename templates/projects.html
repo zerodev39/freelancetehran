@@ -1,0 +1,31 @@
+<section class="section" id="projects">
+    <div class="container">
+        <div class="section-heading">
+            <div>
+                <h2>پروژه‌های فعال</h2>
+                <p>پروژه‌های ثبت‌شده توسط کاربران را بررسی کن.</p>
+            </div>
+            <button class="btn btn-primary" onclick="openProjectModal()">+ ثبت پروژه</button>
+        </div>
+
+        <div class="toolbar">
+            <input id="projectSearch" class="field search-field"
+                placeholder="جستجو در پروژه‌ها..." oninput="renderProjects()">
+            <select id="categoryFilter" class="field search-field" onchange="renderProjects()">
+                <option value="">همه دسته‌بندی‌ها</option>
+                <option>طراحی گرافیک</option>
+                <option>برنامه‌نویسی</option>
+                <option>تولید محتوا</option>
+                <option>بازاریابی</option>
+                <option>ویدئو</option>
+                <option>صدا</option>
+                <option>مهندسی</option>
+                <option>سایر</option>
+            </select>
+        </div>
+
+        <div class="project-grid" id="projectList">
+            <div class="empty">در حال دریافت پروژه‌ها...</div>
+        </div>
+    </div>
+</section>

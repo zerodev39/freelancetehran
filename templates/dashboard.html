@@ -1,0 +1,167 @@
+<section class="dashboard" id="dashboard">
+    <div class="container dashboard-layout">
+
+        <aside class="sidebar">
+            <div class="sidebar-user">
+                <div class="avatar" id="sideAvatar">ف</div>
+                <div>
+                    <strong id="sideName">کاربر</strong>
+                    <span id="sideEmail">ایمیل</span>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <button class="side-link active" data-tab="overview" onclick="switchTab('overview',this)">▦ نمای کلی</button>
+                <button class="side-link" data-tab="myprojects" onclick="switchTab('myprojects',this)">▤ پروژه‌های من</button>
+                <button class="side-link" data-tab="incoming" onclick="switchTab('incoming',this)">↙ پیشنهادهای دریافتی</button>
+                <button class="side-link" data-tab="outgoing" onclick="switchTab('outgoing',this)">↗ پیشنهادهای ارسالی</button>
+                <button class="side-link" data-tab="chats" onclick="switchTab('chats',this)">✉ پیام‌ها و گفتگوها</button>
+                <button class="side-link" data-tab="profile" onclick="switchTab('profile',this)">◉ پروفایل من</button>
+            </div>
+
+            <button class="btn btn-outline" style="width:100%;margin-top:15px" onclick="showHome()">
+                بازگشت به سایت
+            </button>
+        </aside>
+
+        <div class="dashboard-content">
+
+            <div class="dash-title">
+                <div>
+                    <h2 id="dashHeading">نمای کلی</h2>
+                    <p id="dashDescription">مدیریت حساب و همکاری‌های شما</p>
+                </div>
+            </div>
+
+            <div id="tab-overview" class="tab-content">
+                <div class="dash-grid">
+                    <div class="dash-stat">
+                        <strong id="myProjectCount">۰</strong>
+                        <span>پروژه‌های من</span>
+                    </div>
+                    <div class="dash-stat">
+                        <strong id="myIncomingCount">۰</strong>
+                        <span>پیشنهادهای دریافتی</span>
+                    </div>
+                    <div class="dash-stat">
+                        <strong id="myChatCount">۰</strong>
+                        <span>گفتگوهای فعال</span>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3>آخرین فعالیت‌ها</h3>
+                    <div id="recentActivity"></div>
+                </div>
+            </div>
+
+            <div id="tab-myprojects" class="tab-content hidden">
+                <div class="panel">
+                    <h3>پروژه‌هایی که ثبت کرده‌ام</h3>
+                    <p class="panel-subtitle">
+                        می‌توانی پروژه خودت را حذف کنی. با حذف پروژه، پیشنهادهای مرتبط نیز حذف می‌شوند.
+                    </p>
+                    <div id="myProjectsList"></div>
+                </div>
+            </div>
+
+            <div id="tab-incoming" class="tab-content hidden">
+                <div class="panel">
+                    <h3>پیشنهادهای دریافتی</h3>
+                    <p class="panel-subtitle">
+                        پیشنهادهای ارسال‌شده برای پروژه‌هایت را بررسی کن.
+                        می‌توانی هر پیشنهاد را تأیید یا رد کنی.
+                    </p>
+                    <div id="incomingList"></div>
+                </div>
+            </div>
+
+            <div id="tab-outgoing" class="tab-content hidden">
+                <div class="panel">
+                    <h3>پیشنهادهای ارسالی من</h3>
+                    <p class="panel-subtitle">
+                        وضعیت پیشنهادهایی که برای پروژه‌های دیگران ارسال کرده‌ای را ببین.
+                    </p>
+                    <div id="outgoingList"></div>
+                </div>
+            </div>
+
+            <div id="tab-chats" class="tab-content hidden">
+                <div class="panel">
+                    <h3>پیام‌ها و گفتگوها</h3>
+                    <p class="panel-subtitle">
+                        گفتگو فقط برای پیشنهادهایی فعال می‌شود که کارفرما تأیید کرده باشد.
+                    </p>
+
+                    <div class="chat-shell">
+                        <div class="chat-list">
+                            <h3>گفتگوهای من</h3>
+                            <div id="chatContacts">
+                                <div class="empty">در حال بارگذاری...</div>
+                            </div>
+                        </div>
+
+                        <div class="chat-main">
+                            <div class="chat-placeholder" id="chatPlaceholder">
+                                <div>
+                                    <div style="font-size:35px;margin-bottom:12px">✉</div>
+                                    <strong>یک گفتگو را انتخاب کن</strong>
+                                    <p>بعد از تأیید پیشنهاد توسط کارفرما، امکان چت فعال می‌شود.</p>
+                                </div>
+                            </div>
+
+                            <div id="chatActive" class="hidden" style="display:flex;flex-direction:column;flex:1;min-height:0">
+                                <div class="chat-head" id="chatTitle">گفتگو</div>
+                                <div class="chat-messages" id="chatMessages"></div>
+                                <div id="chatClosedNote" class="chat-closed-note hidden">این پروژه با تأیید کارفرما و فریلنسر تکمیل شده است. تاریخچه گفتگو برای مشاهده باقی مانده، اما ارسال پیام جدید غیرفعال است.</div>
+                                <form class="chat-compose" id="chatCompose" onsubmit="sendChatMessage(event)">
+                                    <input id="chatInput" class="field" maxlength="3000"
+                                        placeholder="پیام خود را بنویس..." autocomplete="off">
+                                    <button class="btn btn-primary">ارسال</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-profile" class="tab-content hidden">
+                <div class="panel">
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px">
+                        <h3>ویرایش پروفایل</h3>
+                        <button type="button" class="btn btn-outline btn-sm" onclick="currentUser && openUserProfile(currentUser.id)">مشاهده پروفایل عمومی</button>
+                    </div>
+                    <form onsubmit="saveProfile(event)">
+                        <div class="profile-form">
+                            <div class="form-group">
+                                <label>نام نمایشی</label>
+                                <input class="field" id="profileName" required maxlength="100">
+                            </div>
+                            <div class="form-group">
+                                <label>نوع حساب</label>
+                                <select class="field" id="profileRole">
+                                    <option value="freelancer">فریلنسر</option>
+                                    <option value="employer">کارفرما</option>
+                                    <option value="both">هر دو</option>
+                                </select>
+                            </div>
+                            <div class="form-group full">
+                                <label>درباره من</label>
+                                <textarea class="field" id="profileBio" rows="4" maxlength="2000"></textarea>
+                            </div>
+                            <div class="form-group full">
+                                <label>مهارت‌ها</label>
+                                <input class="field" id="profileSkills" maxlength="500"
+                                    placeholder="مثلاً Python، طراحی سایت، فتوشاپ">
+                            </div>
+                            <div class="full">
+                                <button class="btn btn-primary">ذخیره تغییرات</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
