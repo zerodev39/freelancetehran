@@ -1,12 +1,12 @@
 # 🚀 Freelance Tehran
 
-
+<p align="center">
   **A Persian Freelance Marketplace**
+</p>
 
-
-
+<p align="center">
   Connecting talented freelancers with clients in Tehran and across Iran.
-
+</p>
 
 ---
 
