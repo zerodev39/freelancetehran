@@ -402,6 +402,9 @@ HTML = r"""
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <meta name="theme-color" content="#635bff">
 <title>Freelance Tehran | فریلنس تهران</title>
 
@@ -444,7 +447,7 @@ html {
 }
 
 body {
-    font-family:Tahoma,Arial,sans-serif;
+    font-family:"Vazirmatn",Tahoma,Arial,sans-serif;
     background:var(--bg);
     color:var(--text);
     overflow-x:hidden;
@@ -1668,6 +1671,119 @@ footer h3 {
     .profile-hero {align-items:flex-start}
     .rating-star {font-size:19px}
     .rating-stars.interactive .rating-star {font-size:24px}
+}
+
+/* RESPONSIVE REFINEMENT */
+html { -webkit-text-size-adjust:100%; }
+body { min-width:320px; }
+img, video, iframe { max-width:100%; }
+button, input, textarea, select { max-width:100%; }
+.container { width:min(1200px, calc(100% - 40px)); }
+
+@media (max-width:1100px) {
+    .container { width:min(100% - 36px, 1100px); }
+    .hero-grid { gap:28px; }
+    .dashboard-layout { grid-template-columns:220px minmax(0,1fr); gap:16px; }
+    .sidebar { padding:12px; }
+    .chat-shell { grid-template-columns:230px minmax(0,1fr); }
+}
+
+@media (max-width:900px) {
+    .container { width:calc(100% - 32px); }
+    .nav { gap:12px; }
+    .nav-links { display:none; }
+    .hero { padding:62px 0 55px; }
+    .hero-grid { grid-template-columns:minmax(0,1fr); }
+    .hero-grid > div:first-child { text-align:center; }
+    .hero p { margin-left:auto; margin-right:auto; }
+    .hero-buttons { justify-content:center; }
+    .hero-art { min-height:250px; }
+    .dashboard-layout { grid-template-columns:minmax(0,1fr); }
+    .sidebar { position:static; }
+    .sidebar-menu { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; }
+    .side-link { text-align:center; padding:11px 7px; }
+    .chat-shell { grid-template-columns:200px minmax(0,1fr); }
+    .footer-grid { grid-template-columns:1.5fr 1fr 1fr; gap:20px; }
+}
+
+@media (max-width:650px) {
+    .container { width:calc(100% - 28px); }
+    .nav { min-height:64px; flex-wrap:wrap; padding:9px 0; }
+    .logo { font-size:12px; gap:7px; }
+    .logo-icon { width:34px; height:34px; font-size:20px; border-radius:11px; }
+    .nav-actions, .user-actions { gap:6px; }
+    .nav-actions .btn, .user-actions .btn { font-size:10px; padding:9px 10px; }
+    .user-actions .avatar { width:32px; height:32px; }
+    .hero { padding:44px 0 35px; }
+    .hero h1 { font-size:clamp(29px,8vw,42px); line-height:1.65; }
+    .hero p { font-size:13px; line-height:2.1; }
+    .hero-buttons { display:grid; grid-template-columns:1fr; }
+    .hero-buttons .btn { width:100%; }
+    .hero-art { min-height:215px; }
+    .cube-art { width:135px; height:135px; border-radius:30px; font-size:65px; }
+    .float-card { padding:10px 12px; font-size:10px; }
+    .float-a { top:10px; right:0; }
+    .float-b { bottom:8px; left:0; }
+    .float-c { bottom:75px; right:0; }
+    .section { padding:38px 0; }
+    .section-heading { align-items:stretch; flex-direction:column; gap:13px; }
+    .section-heading h2 { font-size:22px; }
+    .section-heading .btn { width:100%; }
+    .categories { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .category-card { padding:14px; border-radius:14px; }
+    .category-icon { width:42px; height:42px; font-size:20px; margin-bottom:10px; }
+    .category-card h3 { font-size:13px; }
+    .category-card p { font-size:10px; }
+    .stats { grid-template-columns:1fr; padding:24px 15px; gap:18px; }
+    .stat strong { font-size:27px; }
+    .toolbar { flex-direction:column; }
+    .search-field { min-width:0; width:100%; }
+    .project-grid, .how-grid, .footer-grid { grid-template-columns:minmax(0,1fr); }
+    .project-card { padding:17px; }
+    .project-card h3 { font-size:15px; }
+    .dash-title { align-items:flex-start; flex-direction:column; }
+    .dash-title .btn { width:100%; }
+    .dash-title h2 { font-size:20px; }
+    .dash-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+    .dash-stat { padding:14px; }
+    .dash-stat strong { font-size:21px; }
+    .panel { padding:16px; }
+    .sidebar-menu { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .side-link { font-size:11px; }
+    .profile-form { grid-template-columns:minmax(0,1fr); }
+    .profile-form .full { grid-column:auto; }
+    .chat-shell { grid-template-columns:minmax(0,1fr); min-height:0; }
+    .chat-list { border-left:0; border-bottom:1px solid var(--border); max-height:170px; }
+    .chat-main { min-height:400px; }
+    .chat-messages { max-height:340px; padding:13px; }
+    .message { max-width:90%; }
+    .chat-compose { padding:10px; }
+    .chat-compose .btn { padding:10px 12px; }
+    .modal-overlay { padding:8px; align-items:flex-end; }
+    .modal { width:100%; max-height:92dvh; padding:19px 15px; border-radius:19px 19px 12px 12px; }
+    .modal-header h2 { font-size:17px; }
+    .confirm-actions { flex-direction:column; }
+    .profile-hero { padding:13px; gap:11px; }
+    .profile-avatar { width:48px; height:48px; border-radius:14px; font-size:20px; }
+    .profile-hero h3 { font-size:15px; }
+    .modal.modal-wide { width:100%; }
+    .jalali-picker { padding:8px; }
+    .toast-container { left:12px; bottom:12px; width:calc(100% - 24px); }
+}
+
+@media (max-width:380px) {
+    .container { width:calc(100% - 22px); }
+    .logo { font-size:10px; }
+    .nav-actions .btn, .user-actions .btn { padding:8px; font-size:9px; }
+    .categories { grid-template-columns:1fr; }
+    .dash-grid { grid-template-columns:1fr 1fr; }
+    .sidebar-menu { grid-template-columns:1fr 1fr; }
+    .project-meta { flex-direction:column; align-items:flex-start; }
+    .list-actions .btn, .proposal-actions .btn { flex:1 1 100%; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+    *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; }
 }
 
 </style>
