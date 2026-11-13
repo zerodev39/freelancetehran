@@ -1,7 +1,7 @@
 # 🚀 Freelance Tehran
 
 <p align="center">
-  **A Persian Freelance Marketplace**
+  A Persian Freelance Marketplace
 </p>
 
 <p align="center">
